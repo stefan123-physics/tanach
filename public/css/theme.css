@@ -806,17 +806,7 @@ body:where(.page-light) {
   background-color: var(--color-surface, #fff);
 }
 
-/* ===== Site footer: social icons (js/site-footer.js) ===== */
-
-/* The gradient pages fade the whole footer (opacity: 0.8); fade only the text
-   so the brand colours of the icons stay full strength. */
-.footer[data-site-footer] {
-  opacity: 1;
-}
-
-.footer[data-site-footer] > p {
-  opacity: 0.8;
-}
+/* ===== Site footer (js/site-footer.js) ===== */
 
 /* Footers on light pages (reader, Mishnah, Rambam, Talmud) */
 .footer--light {
@@ -825,89 +815,4 @@ body:where(.page-light) {
   max-width: 1200px;
   margin: 30px auto 0;
   padding: 10px 20px 30px;
-}
-
-.social-icons {
-  /* Fill for the black brand marks (X, GitHub, Medium, TikTok): white on the
-     purple gradient and in dark mode, near-black on light pages. */
-  --social-mono: #fff;
-  list-style: none;
-  margin: 16px auto 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 4px 6px;
-  max-width: 520px;
-}
-
-.footer--light .social-icons {
-  --social-mono: #111;
-}
-
-html[data-color-mode="dark"] .social-icons {
-  --social-mono: #fff;
-}
-
-.social-icons li {
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-
-.social-icons .icon {
-  /* The whole cell is the target (WCAG 2.5.8: at least 24x24 px), not just the glyph. */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 40px;
-  min-height: 40px;
-  border-radius: 8px;
-  background: none;
-  color: inherit;
-  text-decoration: none;
-  transition: transform 0.15s ease;
-}
-
-.social-icons .icon:hover {
-  transform: translateY(-2px);
-}
-
-.social-icons .icon:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 2px;
-}
-
-.social-svg {
-  display: block;
-  fill: currentColor;
-  opacity: 0.92;
-  transition: opacity 0.2s ease, filter 0.2s ease;
-}
-
-.social-icons .icon:hover .social-svg {
-  opacity: 1;
-  filter: saturate(1.15);
-}
-
-/* Brand colours */
-.social-youtube { fill: #ff0000; }
-.social-facebook { fill: #1877f2; }
-.social-linkedin { fill: #0a66c2; }
-.social-x,
-.social-github,
-.social-medium,
-.social-tiktok { fill: var(--social-mono); }
-.social-tiktok .tiktok-cyan { fill: #25f4ee; }
-.social-tiktok .tiktok-magenta { fill: #fe2c55; }
-
-/* Windows High Contrast: one system colour, no gradient or offset copies. */
-@media (forced-colors: active) {
-  .social-svg,
-  .social-svg path {
-    fill: currentColor !important;
-    filter: none;
-    opacity: 1;
-  }
 }

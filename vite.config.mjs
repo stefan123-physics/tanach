@@ -4,9 +4,12 @@ import { fileURLToPath } from 'url';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   root: 'public',
-  publicDir: resolve(__dirname, 'public'), // Point to public directory for static assets
+  // The build copies everything in public/ (including data/) into dist/.
+  // In dev, root already serves public/; also setting it as publicDir makes
+  // Vite serve raw HTML for inline-module proxy requests, breaking the pages.
+  publicDir: command === 'build' ? resolve(__dirname, 'public') : false,
   build: {
     outDir: resolve(__dirname, 'dist'),
     emptyOutDir: true,
@@ -26,4 +29,4 @@ export default defineConfig({
   server: {
     port: 3000,
   },
-});
+}));

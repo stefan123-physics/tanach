@@ -30,7 +30,7 @@
     "jewish"
   ],
   "dependencies": {
-    "@hebcal/core": "^6.16.0",
+    "@hebcal/core": "^6.16.1",
     "@hebcal/leyning": "^10.1.0",
     "express": "^5.3.0",
     "fs-extra": "^11.4.1",
